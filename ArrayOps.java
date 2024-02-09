@@ -2,7 +2,7 @@ public class ArrayOps {
     public static void main(String[] args) {
         //int [] str1 = {1,2,2,2,2};
         //int [] str2 = {2,1};
-        //System.out.println(secondMaxValue(str1)); 
+        System.out.println(secondMaxValue(new int [] {2,8,3,7,8})); 
         //System.out.println(containsTheSameElements(str1,str2));
         //System.out.println(findMissingInt(str1));
         // System.out.println(containsTheSameElements(new int [] {3,-4,1,2,5}, new int [] {1,3,-4,5}));
@@ -30,17 +30,20 @@ public class ArrayOps {
 
     public static int secondMaxValue(int [] array) {
         int max = array [0];
-        for (int i = 1; i < array.length; i++){
+        for (int i = 1; i < array.length; i++){ //finding the max value 
             if (max < array[i]){
                 max = array[i];
             }  
         }
-        int secondMax = array [0];
+        if (countTimes(array, max)>1){
+            return max;
+        }
+        int secondMax = array [0]; //checking if the first element is the max 
         if ( secondMax != max){
             secondMax = array [0]; 
         }
         else secondMax = array [1];
-        for (int j = 1; j < array.length; j++){
+        for (int j = 1; j < array.length; j++){ // finding the second max 
             if (secondMax<array[j] && array[j]<max){
                 secondMax= array[j];
             }
@@ -48,6 +51,15 @@ public class ArrayOps {
         return secondMax;
     }
 
+    public static int countTimes(int [] array, int value){
+        int count = 0; 
+        for (int i = 0; i <array.length; i++){
+            if (array[i]==value){
+                count++;
+            }
+        }
+        return count;
+    }
     public static boolean containsTheSameElements(int [] array1 , int [] array2) {
         for (int i = 0; i < array1.length; i++){
             //compers the first array to the second
