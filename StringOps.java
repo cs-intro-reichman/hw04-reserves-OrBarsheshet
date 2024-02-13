@@ -29,7 +29,7 @@ public class StringOps {
         //String string = "Hello World";
         //char chr = 'l';
         //printArray(allIndexOf(string,chr));
-        //System.out.println(camelCase("tWo words HH 2oah"));
+        System.out.println(camelCase(" tWo    word"));
     }
 
     public static String capVowelsLowRest (String string) {
@@ -69,9 +69,9 @@ public class StringOps {
         for (int j = 0; j < lowercaseString.length(); j++){
                
                 if (lowercaseString.charAt(j) == ' '){
-                  newString = newString + (char) (lowercaseString.charAt(j+1)-32);
-                  j++; 
-                 
+                    if (lowercaseString.charAt(j+1)!= ' '){
+                        newString = newString + (char) (lowercaseString.charAt(j+1)-32);
+                        j++;}  
                 }
                 else
                 newString = newString + (char) lowercaseString.charAt(j);
@@ -119,8 +119,8 @@ public class StringOps {
         if (string.charAt(0) == ' '){
             for (int i = 1; i < string.length();i++){
                 newString += (char) string.charAt(i);
-                return newString;
             }
+            return newString;
         }
         else {
             newString = string;
